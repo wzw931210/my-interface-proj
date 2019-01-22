@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.jinjing.plat.user.dao.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="cn.jinjing.plat.user.pojo.UserInfo" >
+    <id column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+    <result column="passwd" property="passwd" jdbcType="VARCHAR" />
+    <result column="security_key" property="securityKey" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="VARCHAR" />
+    <result column="atten_name" property="attenName" jdbcType="VARCHAR" />
+    <result column="atten_phone" property="attenPhone" jdbcType="VARCHAR" />
+    <result column="remain" property="remain" jdbcType="DOUBLE" />
+    <result column="del_sign" property="delSign" jdbcType="VARCHAR" />
+    <result column="active_date" property="activeDate" jdbcType="VARCHAR" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="UserLabel" type="cn.jinjing.plat.user.pojo.BaseUserLabel" >
+    <id column="auto_id" property="autoId" jdbcType="INTEGER" />
+    <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+    <result column="label_code" property="labelCode" jdbcType="VARCHAR" />
+    <result column="parallel" property="parallel" jdbcType="INTEGER" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+
+  <resultMap id="CacheUserLabel" type="cn.jinjing.plat.api.entity.CacheUserLabel" >
+    <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+    <result column="security_key" property="securityKey" jdbcType="VARCHAR" />
+    <result column="remain" property="remain" jdbcType="DOUBLE" />
+    <result column="label_code" property="labelCode" jdbcType="VARCHAR" />
+    <result column="type" property="type" jdbcType="VARCHAR" />
+    <result column="telcom" property="telcom" jdbcType="TIMESTAMP" />
+    <result column="data_source" property="dataSource" jdbcType="TIMESTAMP" />
+    <result column="price" property="price" jdbcType="DOUBLE" />
+  </resultMap>
+
+  <!--登录 -->
+  <select id="logon" parameterType="cn.jinjing.plat.user.pojo.UserInfo" resultMap="BaseResultMap">
+    select * from user_info where user_code =
+    #{userCode} and passwd = #{passwd} and del_sign='0'
+  </select>
+
+  <!--根据userCode查询uesr -->
+  <select id="queryUserByCode" parameterType="string" resultMap="BaseResultMap">
+    select * from user_info where user_code = #{_parameter}
+  </select>
+
+  <!--查询用户对应的标签数据源 -->
+  <select id="queryUserLabels" resultMap="CacheUserLabel" parameterType="string">
+    select a.user_code, a.security_key, a.remain, b.label_code, b.type, b.telcom, b.data_source, b.price
+    from user_info a left join user_label_source b on a.user_code = b.user_code
+    where a.user_code = #{_parameter}
+  </select>
+
+  <!--更新用余额 -->
+  <update id="updateRemainByUser" parameterType="cn.jinjing.plat.user.pojo.UserInfo" >
+    update user_info
+    set remain = (remain-${charge})
+    where user_code = #{userCode}
+  </update>
+
+  <!--查询所有可用用户 -->
+  <select id="queryAllUser" resultMap="BaseResultMap">
+    select * from user_info where del_sign='0'
+  </select>
+
+</mapper>

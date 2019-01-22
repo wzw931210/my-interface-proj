@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.jinjing.plat.user.dao.BaseLabelInfoMapper" >
+  <resultMap id="BaseResultMap" type="cn.jinjing.plat.user.pojo.BaseLabelInfo" >
+    <id column="auto_id" property="autoId" jdbcType="BIGINT" />
+    <result column="label_code" property="labelCode" jdbcType="VARCHAR" />
+    <result column="label_name" property="labelName" jdbcType="VARCHAR" />
+    <result column="del_sign" property="delSign" jdbcType="VARCHAR" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    auto_id, label_code, label_name, del_sign, create_user, create_date, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from label_info
+    where auto_id = #{autoId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from label_info
+    where auto_id = #{autoId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.jinjing.plat.user.pojo.BaseLabelInfo" >
+    insert into label_info (auto_id, label_code, label_name, 
+      del_sign, create_user, create_date, 
+      remark)
+    values (#{autoId,jdbcType=BIGINT}, #{labelCode,jdbcType=VARCHAR}, #{labelName,jdbcType=VARCHAR}, 
+      #{delSign,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.jinjing.plat.user.pojo.BaseLabelInfo" >
+    insert into label_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="autoId != null" >
+        auto_id,
+      </if>
+      <if test="labelCode != null" >
+        label_code,
+      </if>
+      <if test="labelName != null" >
+        label_name,
+      </if>
+      <if test="delSign != null" >
+        del_sign,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="autoId != null" >
+        #{autoId,jdbcType=BIGINT},
+      </if>
+      <if test="labelCode != null" >
+        #{labelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="labelName != null" >
+        #{labelName,jdbcType=VARCHAR},
+      </if>
+      <if test="delSign != null" >
+        #{delSign,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.jinjing.plat.user.pojo.BaseLabelInfo" >
+    update label_info
+    <set >
+      <if test="labelCode != null" >
+        label_code = #{labelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="labelName != null" >
+        label_name = #{labelName,jdbcType=VARCHAR},
+      </if>
+      <if test="delSign != null" >
+        del_sign = #{delSign,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where auto_id = #{autoId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.jinjing.plat.user.pojo.BaseLabelInfo" >
+    update label_info
+    set label_code = #{labelCode,jdbcType=VARCHAR},
+      label_name = #{labelName,jdbcType=VARCHAR},
+      del_sign = #{delSign,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where auto_id = #{autoId,jdbcType=BIGINT}
+  </update>
+</mapper>

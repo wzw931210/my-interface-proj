@@ -1,0 +1,308 @@
+#标签版本信息
+label-info:
+    -
+      id: 1
+      version: 201809
+      labelName: realName
+    -
+      id: 2
+      version: 201809
+      labelName: onlineDur
+    -
+      id: 3
+      version: 201809
+      labelName: mdnLat
+    -
+      id: 4
+      version: 201809
+      labelName: ownMdnCnt
+    -
+      id: 5
+      version: 201809
+      labelName: s3FlowAvg
+    -
+      id: 6
+      version: 201809
+      labelName: s3TalkDurAvg
+    -
+      id: 7
+      version: 201809
+      labelName: s3BdTalkDurAvg
+    -
+      id: 8
+      version: 201809
+      labelName: m1Flow
+    -
+      id: 9
+      version: 201809
+      labelName: m1TalkDur
+    -
+      id: 10
+      version: 201809
+      labelName: m1MessageCnt
+    -
+      id: 11
+      version: 201809
+      labelName: s6FlowAvg
+    -
+      id: 12
+      version: 201809
+      labelName: s6TalkDurAvg
+    -
+      id: 13
+      version: 201809
+      labelName: s6MessageCntAvg
+    -
+      id: 14
+      version: 201809
+      labelName: payCharge
+    -
+      id: 15
+      version: 201809
+      labelName: s3PayChargeAvg
+    -
+      id: 16
+      version: 201809
+      labelName: s6PayChargeAvg
+    -
+      id: 17
+      version: 201809
+      labelName: terminalPricePref
+    -
+      id: 18
+      version: 201809
+      labelName: groupFlag
+    -
+      id: 19
+      version: 201809
+      labelName: oweBehavior
+    -
+      id: 20
+      version: 201809
+      labelName: oweBehaviorFreq
+    -
+      id: 21
+      version: 201809
+      labelName: bdTalkDurScore
+    -
+      id: 22
+      version: 201809
+      labelName: phonePriceLevel
+    -
+      id: 23
+      version: 201809
+      labelName: fiduciaryLoanScore
+    -
+      #比较特殊，职业类型第一位如果是零需要改为a，
+      #201809 版本从分控标签获取
+      #201811版本改了获取方式从动态标签中获取
+      id: 24
+      version: 201809
+      labelName: careerType
+      labelRule:
+          method: subStrEqNewStr
+          param:
+            -
+              ord: 1
+              pam: value
+              type: java.lang.String
+            -
+              ord: 2
+              pam: 0
+              type: java.lang.Integer
+            -
+              ord: 3
+              pam: 1
+              type: java.lang.Integer
+            -
+              ord: 4
+              pam: 0
+              type: java.lang.String
+            -
+              ord: 5
+              pam: a
+              type: java.lang.String
+    -
+      id: 25
+      version: 201809
+      labelName: s3MessageCntAvg
+    -
+      id: 26
+      version: 201809
+      labelName: stopPredict
+    -
+      id: 27
+      version: 201809
+      labelName: behaviorStabilityLevel
+    -
+      id: 28
+      version: 201809
+      labelName: terminalBrandPref
+    -
+      id: 29
+      version: 201809
+      labelName: s3EbankAppTopOne
+    -
+      id: 30
+      version: 201809
+      labelName: s3EbankAppTopThree
+    -
+      id: 31
+      version: 201809
+      labelName: s3InsuranceAppTopOne
+    -
+      id: 32
+      version: 201809
+      labelName: s3InsuranceAppTopThree
+    -
+      id: 33
+      version: 201809
+      labelName: s3CreditCardTopOne
+    -
+      id: 34
+      version: 201809
+      labelName: s3CreditCardTopThree
+    -
+      id: 35
+      version: 201809
+      labelName: s3MamoneyMaappTopOne
+    -
+      id: 36
+      version: 201809
+      labelName: s3MamoneyMaappTopThree
+    -
+      id: 37
+      version: 201809
+      labelName: s3ConsumerFinaAppTopOne
+    -
+      id: 38
+      version: 201809
+      labelName: s3ConsumerFinaAppTopThree
+    -
+      id: 39
+      version: 201809
+      labelName: ifMultiFinance
+    -
+      id: 40
+      version: 201809
+      labelName: ifBadFinance
+    -
+      id: 41
+      version: 201809
+      labelName: workStabilityLevel
+    -
+      id: 42
+      version: 201809
+      labelName: lifeStabilityLevel
+    -
+      id: 43
+      version: 201809
+      labelName: incomeLevel
+    -
+      id: 44
+      version: 201809
+      labelName: travelPre
+    -
+      id: 45
+      version: 201809
+      labelName: ownCarP
+    -
+      id: 46
+      version: 201809
+      labelName: homeIncomeLevel
+    -
+      id: 47
+      version: 201809
+      labelName: homeEconomicLevel
+    -
+      id: 48
+      version: 201811
+      labelName: sunPrenatal
+    -
+      id: 49
+      version: 201809
+      labelName: sunMedicine
+    -
+      id: 50
+      version: 201811
+      labelName: sunCosmetology
+    -
+      id: 51
+      version: 201811
+      labelName: sunDeparture
+    -
+      id: 52
+      version: 201811
+      labelName: sunInsurance
+    -
+      id: 53
+      version: 201811
+      labelName: sunBank
+    -
+      id: 54
+      version: 201811
+      labelName: sunForex
+    -
+      id: 55
+      version: 201811
+      labelName: sunWealth
+    -
+      id: 56
+      version: 201811
+      labelName: s3InsuranceAppCnt
+    -
+      id: 57
+      version: 201811
+      labelName: s3CreditCardCnt
+    -
+      id: 58
+      version: 201811
+      labelName: s3EbankAppCnt
+    -
+      id: 59
+      version: 201811
+      labelName: s3MamoneyMaappCnt
+    -
+      id: 60
+      version: 201811
+      labelName: s3ConsumerFinaAppCnt
+    -
+      id: 61
+      version: 201811
+      labelName: s3EbankAppDays
+    -
+      id: 62
+      version: 201811
+      labelName: s3EbankAppDaysTopThree
+    -
+      id: 63
+      version: 201811
+      labelName: s3InsuranceAppDays
+    -
+      id: 64
+      version: 201811
+      labelName: s3InsuranceAppDaysTopThree
+    -
+      id: 65
+      version: 201811
+      labelName: s3CreditCardAppDays
+    -
+      id: 66
+      version: 201811
+      labelName: s3CreditCardDaysTopThree
+    -
+      id: 67
+      version: 201811
+      labelName: s3MamoneyMaappDays
+    -
+      id: 68
+      version: 201811
+      labelName: s3MamoneyMaappDaysTopThree
+    -
+      id: 69
+      version: 201811
+      labelName: s3ConsumerFinaAppDays
+    -
+      id: 70
+      version: 201811
+      labelName: s3ConsumerFinaAppDaysTopThree

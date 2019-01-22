@@ -1,0 +1,48 @@
+#需要转换成appcode的标签
+# 标签名和编码分类的对应关系
+#银行
+#app_tag2codecat_s3EbankAppTopOne=app_code2name_Ebank
+#app_tag2codecat_s3EbankAppTopThree=app_code2name_Ebank
+##保险
+#app_tag2codecat_s3InsuranceAppTopOne=app_code2name_Insurance
+#app_tag2codecat_s3InsuranceAppTopThree=app_code2name_Insurance
+##信用卡
+#app_tag2codecat_s3CreditCardTopOne=app_code2name_CreditCard
+#app_tag2codecat_s3CreditCardTopThree=app_code2name_CreditCard
+##理财app
+#app_tag2codecat_s3MamoneyMaappTopOne=app_code2name_MamoneyMa
+#app_tag2codecat_s3MamoneyMaappTopThree=app_code2name_MamoneyMa
+##消金
+#app_tag2codecat_s3ConsumerFinaAppTopOne=app_code2name_ConsumerFina
+#app_tag2codecat_s3ConsumerFinaAppTopThree=app_code2name_ConsumerFina
+tag-app:
+    -
+      tagName: s3EbankAppDays
+      tagType: Ebank
+    -
+      tagName: s3EbankAppDaysTopThree
+      tagType: Ebank
+    -
+      tagName: s3InsuranceAppDays
+      tagType: Insurance
+    -
+      tagName: s3InsuranceAppDaysTopThree
+      tagType: Insurance
+    -
+      tagName: s3CreditCardAppDays
+      tagType: CreditCard
+    -
+      tagName: s3CreditCardDaysTopThree
+      tagType: CreditCard
+    -
+      tagName: s3MamoneyMaappDays
+      tagType: MamoneyMaapp
+    -
+      tagName: s3MamoneyMaappDaysTopThree
+      tagType: MamoneyMaapp
+    -
+      tagName: s3ConsumerFinaAppDays
+      tagType: ConsumerFina
+    -
+      tagName: s3ConsumerFinaAppDaysTopThree
+      tagType: ConsumerFina

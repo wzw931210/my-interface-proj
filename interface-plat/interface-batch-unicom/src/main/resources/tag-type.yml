@@ -1,0 +1,150 @@
+#id 用于排序，tag_name 标签名字 ，tag_chname 标签中文名字
+#对应文件名称标志位如：
+#userCode_month_batchId_batchNums_batchSubId_batchSubNums_yyyyMMdd_sun.OK
+#userCode_month_batchId_batchNums_batchSubId_batchSubNums_yyyyMMdd_deb.OK
+tag_type:
+    TEST:
+      -
+        id: 1
+        tag_name: getIfMultiFinance
+        tag_chname: 多头借贷
+      -
+        id: 2
+        tag_name: getIfBadFinance
+        tag_chname: 不良借贷
+      -
+        id: 3
+        tag_name: getIncomeLevel
+        tag_chname: 职业收入水平
+      -
+        id: 4
+        tag_name: getLifeStabilityLevel
+        tag_chname: 生活稳定性
+      -
+        id: 5
+        tag_name: getWorkStabilityLevel
+        tag_chname: 工作稳定性
+    TEST1:
+      -
+        id: 1
+        tag_name: getWorkStabilityLevel
+        tag_chname: 工作稳定性
+#惠金所提数
+    HJS:
+      -
+        id: 1
+        tag_name: getOnlineDur
+        tag_chname: 手机号入网时长查询
+      -
+        id: 2
+        tag_name: getMdnLat
+        tag_chname: 号码归属地查询
+      -
+        id: 3
+        tag_name: getM1Flow
+        tag_chname: M1上网流量/M
+      -
+        id: 4
+        tag_name: getS3FlowAvg
+        tag_chname: 近3个月平均上网流量/M
+      -
+        id: 5
+        tag_name: getM1TalkDur
+        tag_chname: M1通话时长/分钟
+      -
+        id: 6
+        tag_name: getS3TalkDurAvg
+        tag_chname: 近3个月平均通话时长/分钟
+      -
+        id: 7
+        tag_name: getPayCharge
+        tag_chname: M1消费金额
+      -
+        id: 8
+        tag_name: getTerminalPricePref
+        tag_chname: 终端（价格）偏好
+      -
+        id: 9
+        tag_name: getTerminalBrandPref
+        tag_chname: 终端品牌偏好
+      -
+        id: 10
+        tag_name: getOwnMdnCnt
+        tag_chname: 评估用户名下手机号码数量
+      -
+        id: 11
+        tag_name: getGroupFlag
+        tag_chname: 是否集团用户
+      -
+        id: 12
+        tag_name: getOweBehavior
+        tag_chname: 欠费行为
+      -
+        id: 13
+        tag_name: getS3EbankAppTopThree
+        tag_chname: 前3个月使用最频繁的银行APPTOP3
+      -
+        id: 14
+        tag_name: getS3EbankAppTopOne
+        tag_chname: 前3个月使用最频繁的银行APP
+      -
+        id: 15
+        tag_name: getS3CreditCardTopThree
+        tag_chname: 前3个月使用银行信用卡APP TOP3
+      -
+        id: 16
+        tag_name: getS3CreditCardTopOne
+        tag_chname: 前3个月使用最频繁的信用卡
+      -
+        id: 17
+        tag_name: getIfMultiFinance
+        tag_chname: 多头借贷行为
+      -
+        id: 18
+        tag_name: getIfBadFinance
+        tag_chname: 不良借贷行为
+      -
+        id: 19
+        tag_name: getS3ConsumerFinaAppTopThree
+        tag_chname: 前3个月使用某消金APP TOP3
+      -
+        id: 20
+        tag_name: getS3ConsumerFinaAppTopOne
+        tag_chname: 前3个月使用最频繁的消金APP
+      -
+        id: 21
+        tag_name: getBdTalkDurScore
+        tag_chname: 凌晨通话得分
+      -
+        id: 22
+        tag_name: getWorkStabilityLevel
+        tag_chname: 工作稳定性
+      -
+        id: 23
+        tag_name: getLifeStabilityLevel
+        tag_chname: 生活稳定性
+      -
+        id: 24
+        tag_name: getPhonePriceLevel
+        tag_chname: 客户性格
+      -
+        id: 25
+        tag_name: getIncomeLevel
+        tag_chname: 职业收入水平
+      -
+        id: 26
+        tag_name: getTravelPre
+        tag_chname: 出行偏好
+      -
+        id: 27
+        tag_name: getOwnCarP
+        tag_chname: 车辆资产概率
+      -
+        id: 28
+        tag_name: getHomeIncomeLevel
+        tag_chname: 家庭经济水平
+      -
+        id: 29
+        tag_name: getHomeEconomicLevel
+        tag_chname: 家庭用款需求
+

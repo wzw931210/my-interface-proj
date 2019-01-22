@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://code.alibabatech.com/schema/dubbo
+       http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+       
+    <dubbo:application name="demotest-consumer"/>
+    <!--向 zookeeper 订阅 provider 的地址，由 zookeeper 定时推送-->
+    
+<!--     公司内网 -->
+     <dubbo:registry protocol="zookeeper" address="192.168.6.104:2181,192.168.6.105:2181,192.168.6.106:2181" check="false"/>
+<!--     电信环境 -->
+    <!--<dubbo:registry protocol="zookeeper" address="10.37.31.129:2181,10.37.31.130:2181,10.37.31.131:2181" check="false"/>-->
+    <!-- 关闭所有服务的启动时检查 -->
+	<dubbo:consumer check="false" />
+    <!--使用 dubbo 协议调用定义好的接口-->
+    <dubbo:reference id="userService" interface="cn.jinjing.plat.service.user.UserService"/>
+    <!-- <dubbo:reference id="permissionService" interface="cn.jinjing.plat.service.user.PermissionService"/>
+    <dubbo:reference id="consumeService" interface="cn.jinjing.plat.service.consume.ConsumeService"/> -->
+    <dubbo:reference id="digitalService" interface="cn.jinjing.plat.service.digital.DigitalService"/>
+    <dubbo:reference id="comLabelService" interface="cn.jinjing.plat.service.comlabel.ComLabelService"/>
+    <dubbo:reference id="unicomLabelService" interface="cn.jinjing.plat.service.unicomlabel.UnicomLabelService"/>
+    <dubbo:reference id="shuZunService" interface="cn.jinjing.plat.service.shuzun.ShuZunService"/>
+    <dubbo:reference id="postalService" interface="cn.jinjing.plat.service.postal.PostalService"/>
+    <dubbo:reference id="enterpriseSearchService" interface="cn.jinjing.plat.service.enterpriseSearch.EnterpriseSearchService"/>
+    <dubbo:reference id="unicomInnerService" interface="cn.jinjing.plat.service.unicominner.UnicomInnerService"/>
+    
+</beans>
