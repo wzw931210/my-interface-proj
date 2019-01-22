@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.jinjing.web.mapper.RechargeLogMapper" >
+  <resultMap id="BaseResultMap" type="cn.jinjing.web.model.RechargeLog" >
+    <id column="auto_id" property="autoId" jdbcType="INTEGER" />
+    <result column="user_code" property="userCode" jdbcType="CHAR" />
+    <result column="charge" property="charge" jdbcType="DOUBLE" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="create_user" property="createUser" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    auto_id, user_code, charge, create_time, create_user
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from recharge_log
+    where auto_id = #{autoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from recharge_log
+    where auto_id = #{autoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.jinjing.web.model.RechargeLog" >
+    insert into recharge_log (auto_id, user_code, charge, 
+      create_time, create_user)
+    values (#{autoId,jdbcType=INTEGER}, #{userCode,jdbcType=CHAR}, #{charge,jdbcType=DOUBLE}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{createUser,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.jinjing.web.model.RechargeLog" >
+    insert into recharge_log
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="autoId != null" >
+        auto_id,
+      </if>
+      <if test="userCode != null" >
+        user_code,
+      </if>
+      <if test="charge != null" >
+        charge,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="autoId != null" >
+        #{autoId,jdbcType=INTEGER},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=CHAR},
+      </if>
+      <if test="charge != null" >
+        #{charge,jdbcType=DOUBLE},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.jinjing.web.model.RechargeLog" >
+    update recharge_log
+    <set >
+      <if test="userCode != null" >
+        user_code = #{userCode,jdbcType=CHAR},
+      </if>
+      <if test="charge != null" >
+        charge = #{charge,jdbcType=DOUBLE},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=CHAR},
+      </if>
+    </set>
+    where auto_id = #{autoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.jinjing.web.model.RechargeLog" >
+    update recharge_log
+    set user_code = #{userCode,jdbcType=CHAR},
+      charge = #{charge,jdbcType=DOUBLE},
+      create_time = #{createTime,jdbcType=TIMESTAMP},
+      create_user = #{createUser,jdbcType=CHAR}
+    where auto_id = #{autoId,jdbcType=INTEGER}
+  </update>
+</mapper>

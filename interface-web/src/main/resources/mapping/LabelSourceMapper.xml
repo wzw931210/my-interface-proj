@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.jinjing.web.mapper.LabelSourceMapper" >
+  <resultMap id="BaseResultMap" type="cn.jinjing.web.model.LabelSource" >
+    <id column="auto_id" property="autoId" jdbcType="BIGINT" />
+    <result column="label_code" property="labelCode" jdbcType="VARCHAR" />
+    <result column="data_source" property="dataSource" jdbcType="VARCHAR" />
+    <result column="mdn" property="mdn" jdbcType="VARCHAR" />
+    <result column="imei" property="imei" jdbcType="VARCHAR" />
+    <result column="ctcc" property="ctcc" jdbcType="VARCHAR" />
+    <result column="cucc" property="cucc" jdbcType="VARCHAR" />
+    <result column="cmcc" property="cmcc" jdbcType="VARCHAR" />
+    <result column="del_sign" property="delSign" jdbcType="VARCHAR" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    auto_id, label_code, data_source, mdn, imei, ctcc, cucc, cmcc, del_sign, create_user, 
+    create_date, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from label_source
+    where auto_id = #{autoId,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long" >
+    delete from label_source
+    where auto_id = #{autoId,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="cn.jinjing.web.model.LabelSource" >
+    insert into label_source (auto_id, label_code, data_source, 
+      mdn, imei, ctcc, cucc, 
+      cmcc, del_sign, create_user, 
+      create_date, remark)
+    values (#{autoId,jdbcType=BIGINT}, #{labelCode,jdbcType=VARCHAR}, #{dataSource,jdbcType=VARCHAR}, 
+      #{mdn,jdbcType=VARCHAR}, #{imei,jdbcType=VARCHAR}, #{ctcc,jdbcType=VARCHAR}, #{cucc,jdbcType=VARCHAR}, 
+      #{cmcc,jdbcType=VARCHAR}, #{delSign,jdbcType=VARCHAR}, #{createUser,jdbcType=VARCHAR}, 
+      #{createDate,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="cn.jinjing.web.model.LabelSource" >
+    insert into label_source
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="autoId != null" >
+        auto_id,
+      </if>
+      <if test="labelCode != null" >
+        label_code,
+      </if>
+      <if test="dataSource != null" >
+        data_source,
+      </if>
+      <if test="mdn != null" >
+        mdn,
+      </if>
+      <if test="imei != null" >
+        imei,
+      </if>
+      <if test="ctcc != null" >
+        ctcc,
+      </if>
+      <if test="cucc != null" >
+        cucc,
+      </if>
+      <if test="cmcc != null" >
+        cmcc,
+      </if>
+      <if test="delSign != null" >
+        del_sign,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="autoId != null" >
+        #{autoId,jdbcType=BIGINT},
+      </if>
+      <if test="labelCode != null" >
+        #{labelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSource != null" >
+        #{dataSource,jdbcType=VARCHAR},
+      </if>
+      <if test="mdn != null" >
+        #{mdn,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null" >
+        #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="ctcc != null" >
+        #{ctcc,jdbcType=VARCHAR},
+      </if>
+      <if test="cucc != null" >
+        #{cucc,jdbcType=VARCHAR},
+      </if>
+      <if test="cmcc != null" >
+        #{cmcc,jdbcType=VARCHAR},
+      </if>
+      <if test="delSign != null" >
+        #{delSign,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.jinjing.web.model.LabelSource" >
+    update label_source
+    <set >
+      <if test="labelCode != null" >
+        label_code = #{labelCode,jdbcType=VARCHAR},
+      </if>
+      <if test="dataSource != null" >
+        data_source = #{dataSource,jdbcType=VARCHAR},
+      </if>
+      <if test="mdn != null" >
+        mdn = #{mdn,jdbcType=VARCHAR},
+      </if>
+      <if test="imei != null" >
+        imei = #{imei,jdbcType=VARCHAR},
+      </if>
+      <if test="ctcc != null" >
+        ctcc = #{ctcc,jdbcType=VARCHAR},
+      </if>
+      <if test="cucc != null" >
+        cucc = #{cucc,jdbcType=VARCHAR},
+      </if>
+      <if test="cmcc != null" >
+        cmcc = #{cmcc,jdbcType=VARCHAR},
+      </if>
+      <if test="delSign != null" >
+        del_sign = #{delSign,jdbcType=VARCHAR},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where auto_id = #{autoId,jdbcType=BIGINT}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.jinjing.web.model.LabelSource" >
+    update label_source
+    set label_code = #{labelCode,jdbcType=VARCHAR},
+      data_source = #{dataSource,jdbcType=VARCHAR},
+      mdn = #{mdn,jdbcType=VARCHAR},
+      imei = #{imei,jdbcType=VARCHAR},
+      ctcc = #{ctcc,jdbcType=VARCHAR},
+      cucc = #{cucc,jdbcType=VARCHAR},
+      cmcc = #{cmcc,jdbcType=VARCHAR},
+      del_sign = #{delSign,jdbcType=VARCHAR},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where auto_id = #{autoId,jdbcType=BIGINT}
+  </update>
+</mapper>

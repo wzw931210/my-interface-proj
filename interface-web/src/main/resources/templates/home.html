@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
+    <title>主页</title>
+
+    <style type="text/css">
+        .navbar-inner {
+            padding: 10px;
+        }
+        .navbar-inverse .sui-brand{
+            font-size: 32px;
+        }
+        .navbar-inner ul {
+            font-size: 14px;
+        }
+        .sui-nav li{
+            padding : 3px;
+        }
+        .sui-dropdown-menu li{
+            font-size: 12px;
+        }
+        .footer{
+            position: absolute;
+            top: 100%;
+            left: 53%;
+            padding: 50px;
+            margin-left: -200px;
+            margin-top: -130px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body style="overflow-y:scroll;">
+<div class="sui-navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="sui-container"><a href="/home" class="sui-brand">JINJING</a>
+            <ul class="sui-nav">
+                <li class="active"><a href="/home">首页</a></li>
+                <li ><a href="#">用户管理</a></li>
+                <li ><a href="#">标签管理</a></li>
+                <li ><a href="/labelConfig">权限配置</a></li>
+                <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">日志管理<i class="caret"></i></a>
+                    <ul role="menu" class="sui-dropdown-menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">接口日志(日)</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">接口日志(月)</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">数据源日志(日)</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">数据源日志(月)</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="sui-nav pull-right">
+                <li><a href="#">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+
+<div class="footer">
+    <ul class="unstyled">
+        <li>@time 2018.03.07</li>
+        <li>@author 晋景数据科技有限公司</li>
+    </ul>
+</div>
+
+<script type="text/javascript" src="/static/jquery-1.11.1.min.js"></script>
+<script type="text/javascript " src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+</body>
+</html>

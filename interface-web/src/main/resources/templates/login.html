@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="zh"  >
+
+<head>
+    <meta charset="UTF-8">
+    <link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
+    <script type="text/javascript" src="/static/jquery-1.11.1.min.js"></script>
+    <script type="text/javascript " src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+    <script type="text/javascript" src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+    <script type="text/javascript" src="/static/jquery.placeholder.js"></script>
+    <title>登录</title>
+</head>
+<style>
+    body {
+        background: url("/image/login_bg.jpg") no-repeat center fixed;
+    }
+
+    #title-panel {
+        position: absolute;
+        top: 13%;
+        width: 100%;
+        color: #fff;
+        font-size: 40px;
+        text-align: center;
+    }
+    /* LOGIN PANEL */
+    #login-panel {
+        color: #fff;
+        position: absolute;
+        width: 400px;
+        height: 260px;
+        background-color: transparent;
+        top: 52%;
+        left: 48%;
+        padding: 50px;
+        margin-left: -200px;
+        margin-top: -130px;
+        text-align: center;
+        border-radius: 10px;
+    }
+    #login-panel .form-group {
+        margin-bottom: 20px;
+    }
+
+    .alertInfo {
+        float: left;
+        visibility: hidden;
+        color: red;
+    }
+
+</style>
+
+<body>
+
+<div id="title-panel">
+    晋景平台管理系统
+</div>
+
+<div id="login-panel">
+    <form id="loginForm" class="sui-form form-horizontal">
+        <div class="control-group">
+            <label for="inputUser" class="control-label">用户名：</label>
+            <div class="controls">
+                <input type="text" id="inputUser" placeholder="user">
+            </div>
+        </div>
+        <div class="control-group" id="divInput">
+            <label for="inputPassword" class="control-label">密码：</label>
+            <div class="controls">
+                <input type="password" id="inputPassword" placeholder="password" onkeydown="if (event.keyCode===13) login();">
+                <span class="help-inline" id="errMSG"></span>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label"></label>
+            <div class="controls">
+                <label data-toggle="checkbox" class="checkbox-pretty inline">
+                    <input type="checkbox" name="remember-me" ><span>记住我</span>
+                </label>
+            </div>
+        </div>
+        <div class="control-group">
+            <label class="control-label"></label>
+            <div class="controls">
+                <button id="submit" type="button" class="sui-btn btn-primary">Sign in</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+<script type="text/javascript">
+$(function(){
+    $('input, textarea').placeholder();
+
+    //获取当前项目的根路径
+    var urlRootContext = (function () {
+        var strPath = window.document.location.pathname;////获取当前窗口的路径
+        return strPath.substring(0, strPath.substr(1).indexOf('/') + 1);
+    })();
+
+    $("#submit").bind("click",function(){
+        login();
+    });
+
+    function login() {
+        var url = urlRootContext + "/doLogin";
+        var username = $("#inputUser").val();
+        var userpwd = $("#inputPassword").val();
+        var errMSG = $("#errMSG");
+        var divInput = $("#divInput");
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {"username": username, "userpwd": userpwd},
+            async: false,
+            dataType: "json",
+            success: function (data) {
+                if ("error" === data.head) {
+                    errMSG.html(data.message);
+                    divInput.addClass("error");
+                    errMSG.css("visibility","visible");
+                } else {
+                    divInput.removeClass("error");
+                    document.location.href = urlRootContext + "/home";
+                }
+            },
+            error: function (data) {
+                errMSG.html(data.message);
+                divInput.addClass("error");
+                errMSG.css("visibility","visible");
+            }
+        });
+        return false;
+    }
+
+
+});
+</script>
+
+</html>

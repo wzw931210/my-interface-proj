@@ -1,0 +1,36 @@
+.navbar-inner {
+    padding: 10px;
+}
+.navbar-inverse .sui-brand{
+    font-size: 32px;
+}
+.navbar-inner ul {
+    font-size: 14px;
+}
+.sui-nav li{
+    padding : 3px;
+}
+.sui-dropdown-menu li{
+    font-size: 12px;
+}
+.sui-layout , .sui-row-fluid{
+    position: absolute;
+    top: 10%;
+    width: 90%;
+    height: 90%;
+    font-size: 12px;
+}
+.tableDiv {
+    position: absolute;
+    width: 35%;
+}
+.msgDiv{
+    position: absolute;
+    left:50%;
+}
+.sui-table th, .sui-table td{
+    text-align: center;
+}
+.tableDiv form{
+    text-align: right;
+}

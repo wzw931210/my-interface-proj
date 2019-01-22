@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="http://g.alicdn.com/sj/dpl/1.5.1/css/sui.min.css" rel="stylesheet">
+    <link href="/static/css/labelConfig.css" rel="stylesheet">
+    <title>权限配置</title>
+</head>
+<body style="overflow-y:scroll;">
+<div class="sui-navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="sui-container" ><a href="/home" class="sui-brand">JINJING</a>
+            <ul class="sui-nav">
+                <li ><a href="/home">首页</a></li>
+                <li ><a href="#">用户管理</a></li>
+                <li ><a href="#">标签管理</a></li>
+                <li class="active"><a href="/labelConfig">权限配置</a></li>
+                <li class="sui-dropdown"><a href="javascript:void(0);" data-toggle="dropdown" class="dropdown-toggle">日志管理<i class="caret"></i></a>
+                    <ul role="menu" class="sui-dropdown-menu">
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">接口日志(日)</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">接口日志(月)</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">数据源日志(日)</a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">数据源日志(月)</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <ul class="sui-nav pull-right">
+                <li><a href="#">退出</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+<div class="sui-layout">
+    <!--<div class="sidebar"></div>-->
+    <div class="content">
+        <div class="content-inner">
+            <ul class="sui-nav nav-tabs">
+                <li class="active"><a href="#label" data-toggle="tab">标签配置</a></li>
+                <li><a href="#source" data-toggle="tab">数据源配置</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="label" class="tab-pane active">
+                    <div class="sui-row-fluid">
+                        <div class="tableDiv">
+                            <div >
+                                <form class="sui-form form-search">
+                                    <input type="text" class="input-medium search-query" placeholder="接口中、英文名">
+                                    <button type="submit" class="sui-btn btn-primary">Search</button>
+                                </form>
+                            </div>
+                            <div>
+                                <table class="sui-table table-zebra">
+                                <thead>
+                                    <tr>
+                                        <th >用户名称</th>
+                                        <th >用户账号</th>
+                                        <th >操作</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="userTable">
+                                    <tr>
+                                        <td >1</td>
+                                        <td >1</td>
+                                        <td >1</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>1</td>
+                                        <td>1</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            </div>
+                        </div>
+                        <div class="msgDiv">
+                            <p>1234</p>
+                        </div>
+                    </div>
+                </div>
+                <div id="source" class="tab-pane">
+                    <div class="">
+                        <p>1234</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" src="/static/jquery-1.11.1.min.js"></script>
+<script type="text/javascript " src="http://g.alicdn.com/sj/dpl/1.5.1/js/sui.min.js"></script>
+</body>
+
+
+</html>

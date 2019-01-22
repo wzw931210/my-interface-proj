@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="cn.jinjing.web.mapper.UserInfoMapper" >
+  <resultMap id="BaseResultMap" type="cn.jinjing.web.model.UserInfo" >
+    <id column="auto_id" property="autoId" jdbcType="INTEGER" />
+    <result column="user_code" property="userCode" jdbcType="VARCHAR" />
+    <result column="passwd" property="passwd" jdbcType="VARCHAR" />
+    <result column="security_key" property="securityKey" jdbcType="VARCHAR" />
+    <result column="user_name" property="userName" jdbcType="VARCHAR" />
+    <result column="level" property="level" jdbcType="VARCHAR" />
+    <result column="atten_name" property="attenName" jdbcType="VARCHAR" />
+    <result column="atten_telephone" property="attenTelephone" jdbcType="VARCHAR" />
+    <result column="atten_email" property="attenEmail" jdbcType="VARCHAR" />
+    <result column="atten_phone" property="attenPhone" jdbcType="VARCHAR" />
+    <result column="remain" property="remain" jdbcType="DOUBLE" />
+    <result column="del_sign" property="delSign" jdbcType="VARCHAR" />
+    <result column="qps" property="qps" jdbcType="INTEGER" />
+    <result column="create_user" property="createUser" jdbcType="VARCHAR" />
+    <result column="create_date" property="createDate" jdbcType="TIMESTAMP" />
+    <result column="update_user" property="updateUser" jdbcType="VARCHAR" />
+    <result column="update_date" property="updateDate" jdbcType="TIMESTAMP" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    auto_id, user_code, passwd, security_key, user_name, level, atten_name, atten_telephone, 
+    atten_email, atten_phone, remain, del_sign, qps, create_user, create_date, update_user, 
+    update_date, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from user_info
+    where auto_id = #{autoId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from user_info
+    where auto_id = #{autoId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="cn.jinjing.web.model.UserInfo" >
+    insert into user_info (auto_id, user_code, passwd, 
+      security_key, user_name, level, 
+      atten_name, atten_telephone, atten_email, 
+      atten_phone, remain, del_sign, 
+      qps, create_user, create_date, 
+      update_user, update_date, remark
+      )
+    values (#{autoId,jdbcType=INTEGER}, #{userCode,jdbcType=VARCHAR}, #{passwd,jdbcType=VARCHAR}, 
+      #{securityKey,jdbcType=VARCHAR}, #{userName,jdbcType=VARCHAR}, #{level,jdbcType=VARCHAR}, 
+      #{attenName,jdbcType=VARCHAR}, #{attenTelephone,jdbcType=VARCHAR}, #{attenEmail,jdbcType=VARCHAR}, 
+      #{attenPhone,jdbcType=VARCHAR}, #{remain,jdbcType=DOUBLE}, #{delSign,jdbcType=VARCHAR}, 
+      #{qps,jdbcType=INTEGER}, #{createUser,jdbcType=VARCHAR}, #{createDate,jdbcType=TIMESTAMP}, 
+      #{updateUser,jdbcType=VARCHAR}, #{updateDate,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="cn.jinjing.web.model.UserInfo" >
+    insert into user_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="autoId != null" >
+        auto_id,
+      </if>
+      <if test="userCode != null" >
+        user_code,
+      </if>
+      <if test="passwd != null" >
+        passwd,
+      </if>
+      <if test="securityKey != null" >
+        security_key,
+      </if>
+      <if test="userName != null" >
+        user_name,
+      </if>
+      <if test="level != null" >
+        level,
+      </if>
+      <if test="attenName != null" >
+        atten_name,
+      </if>
+      <if test="attenTelephone != null" >
+        atten_telephone,
+      </if>
+      <if test="attenEmail != null" >
+        atten_email,
+      </if>
+      <if test="attenPhone != null" >
+        atten_phone,
+      </if>
+      <if test="remain != null" >
+        remain,
+      </if>
+      <if test="delSign != null" >
+        del_sign,
+      </if>
+      <if test="qps != null" >
+        qps,
+      </if>
+      <if test="createUser != null" >
+        create_user,
+      </if>
+      <if test="createDate != null" >
+        create_date,
+      </if>
+      <if test="updateUser != null" >
+        update_user,
+      </if>
+      <if test="updateDate != null" >
+        update_date,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="autoId != null" >
+        #{autoId,jdbcType=INTEGER},
+      </if>
+      <if test="userCode != null" >
+        #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null" >
+        #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="securityKey != null" >
+        #{securityKey,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="attenName != null" >
+        #{attenName,jdbcType=VARCHAR},
+      </if>
+      <if test="attenTelephone != null" >
+        #{attenTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="attenEmail != null" >
+        #{attenEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="attenPhone != null" >
+        #{attenPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="remain != null" >
+        #{remain,jdbcType=DOUBLE},
+      </if>
+      <if test="delSign != null" >
+        #{delSign,jdbcType=VARCHAR},
+      </if>
+      <if test="qps != null" >
+        #{qps,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null" >
+        #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="cn.jinjing.web.model.UserInfo" >
+    update user_info
+    <set >
+      <if test="userCode != null" >
+        user_code = #{userCode,jdbcType=VARCHAR},
+      </if>
+      <if test="passwd != null" >
+        passwd = #{passwd,jdbcType=VARCHAR},
+      </if>
+      <if test="securityKey != null" >
+        security_key = #{securityKey,jdbcType=VARCHAR},
+      </if>
+      <if test="userName != null" >
+        user_name = #{userName,jdbcType=VARCHAR},
+      </if>
+      <if test="level != null" >
+        level = #{level,jdbcType=VARCHAR},
+      </if>
+      <if test="attenName != null" >
+        atten_name = #{attenName,jdbcType=VARCHAR},
+      </if>
+      <if test="attenTelephone != null" >
+        atten_telephone = #{attenTelephone,jdbcType=VARCHAR},
+      </if>
+      <if test="attenEmail != null" >
+        atten_email = #{attenEmail,jdbcType=VARCHAR},
+      </if>
+      <if test="attenPhone != null" >
+        atten_phone = #{attenPhone,jdbcType=VARCHAR},
+      </if>
+      <if test="remain != null" >
+        remain = #{remain,jdbcType=DOUBLE},
+      </if>
+      <if test="delSign != null" >
+        del_sign = #{delSign,jdbcType=VARCHAR},
+      </if>
+      <if test="qps != null" >
+        qps = #{qps,jdbcType=INTEGER},
+      </if>
+      <if test="createUser != null" >
+        create_user = #{createUser,jdbcType=VARCHAR},
+      </if>
+      <if test="createDate != null" >
+        create_date = #{createDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateUser != null" >
+        update_user = #{updateUser,jdbcType=VARCHAR},
+      </if>
+      <if test="updateDate != null" >
+        update_date = #{updateDate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where auto_id = #{autoId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="cn.jinjing.web.model.UserInfo" >
+    update user_info
+    set user_code = #{userCode,jdbcType=VARCHAR},
+      passwd = #{passwd,jdbcType=VARCHAR},
+      security_key = #{securityKey,jdbcType=VARCHAR},
+      user_name = #{userName,jdbcType=VARCHAR},
+      level = #{level,jdbcType=VARCHAR},
+      atten_name = #{attenName,jdbcType=VARCHAR},
+      atten_telephone = #{attenTelephone,jdbcType=VARCHAR},
+      atten_email = #{attenEmail,jdbcType=VARCHAR},
+      atten_phone = #{attenPhone,jdbcType=VARCHAR},
+      remain = #{remain,jdbcType=DOUBLE},
+      del_sign = #{delSign,jdbcType=VARCHAR},
+      qps = #{qps,jdbcType=INTEGER},
+      create_user = #{createUser,jdbcType=VARCHAR},
+      create_date = #{createDate,jdbcType=TIMESTAMP},
+      update_user = #{updateUser,jdbcType=VARCHAR},
+      update_date = #{updateDate,jdbcType=TIMESTAMP},
+      remark = #{remark,jdbcType=VARCHAR}
+    where auto_id = #{autoId,jdbcType=INTEGER}
+  </update>
+
+  <select id="login" parameterType="cn.jinjing.web.model.UserInfo" resultMap="BaseResultMap">
+    select * from user_info
+    where user_code = #{userCode}
+          and passwd = #{passwd}
+          and del_sign='0'
+  </select>
+
+</mapper>

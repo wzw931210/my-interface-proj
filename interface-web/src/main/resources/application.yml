@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  thymeleaf:
+    encoding: UTF-8
+    cache: false
+    mode: HTML
+    prefix: classpath:templates/
+    suffix: .html
+    servlet:
+      content-type: text/html
+  banner:
+    charset: UTF-8
+
+  datasource:
+    username: root
+    password: 123456
+#    password: 931210
+#    url: jdbc:mysql://127.0.0.1:3306/interface_web?useUnicode=true&characterEncoding=UTF-8&allowMultiQueries=true&useSSL=false
+    url: jdbc:mysql://10.37.31.128:3306/interface_web?useUnicode=true&characterEncoding=UTF-8&zeroDateTimeBehavior=convertToNull&allowMultiQueries=true&useSSL=false
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  resources:
+    static-locations: classpath:/
+
+mybatis:
+  mapper-locations: classpath:mapping/*.xml
+  type-aliases-package: cn.jinjing.web.model
+
